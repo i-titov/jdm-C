@@ -1,18 +1,14 @@
-//
-// Created by IT on 21.03.2024.
-//
-
-#include "TryYourLuck.h"
+#include "RandomGenerator.h"
 #include <iostream>
 #include <random>
 using namespace std;
 
-int TryYourLuck::getRandom() {
+int RandomGenerator::getRandom(int min, int max) {
     std::random_device rd;
     std::mt19937 gen(rd());
 
     // Define the distribution
-    std::uniform_int_distribution<> dis(1, 3);
+    std::uniform_int_distribution<> dis(min, max);
 
     int random = dis(gen);
     return random;

@@ -1,4 +1,5 @@
 #include "../../tools/randomGenerator/RandomGenerator.h"
+#include "../../tools/logger/Logger.h"
 #include "Coin.h"
 using namespace std;
 
@@ -14,6 +15,7 @@ int Coin::getResult(){
     return this->result;
 }
 int Coin::tossCoin(int x) {
+    Logger::gameLog(Logger::coin);
     if (x == 0){
         this->setResult(1);
         return 1;

@@ -1,13 +1,10 @@
-#include <iostream>
-#include "gameTypes/gameCard/GameCard.h"
-#include "tools/logger/Logger.h"
+#include "gameMaster/GameMaster.h"
+
 
 using namespace std;
 
 int main() {
-    GameCard gc;
-    string test = gc.rolling();
-    std::cout << "random:"<< test << std::endl;
-    Logger::log(Logger::success);
+    GameMaster gm;
+    gm.startRolling();
     return 0;
 }

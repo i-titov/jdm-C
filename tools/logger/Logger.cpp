@@ -14,10 +14,16 @@ void Logger::log(int msg) {
 void Logger::gameLog(int msg) {
     switch (msg) {
         case Logger::start:
-            std::cout << "-----Start of the game-----"<<std::endl;
+            std::cout << "-----Start of the rolling-----"<<std::endl;
             break;
         case Logger::end:
-            std::cout << "-----End of the game-----"<<std::endl;
+            std::cout << "-----End of the rolling-----"<<std::endl;
+            break;
+        case Logger::coin:
+            std::cout << "-----We toss the coin-----"<<std::endl;
             break;
     }
+}
+void Logger::gameTypeLog(std::string str) {
+    std::cout << "-----We going to use " << str <<"-----"<<std::endl;
 }

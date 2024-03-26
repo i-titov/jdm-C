@@ -1,7 +1,9 @@
 #ifndef JDR_DICE_H
 #define JDR_DICE_H
 #include "../../interfaces/RollingInterface.h"
-class Dice: public RollingInterface {
+#include "../../tools/logger/Logger.h"
+
+class Dice: public RollingInterface, protected Logger{
 private:
     //First dice
     int firstDice;
@@ -12,10 +14,11 @@ private:
     int minFace;
 public:
     Dice(int min = 1, int max = 6);
-    void setFirstDice();
-    void setSecondDice();
+    void setFirstDice(float chance);
+    void setSecondDice(float chance);
     // rolling fn from interface
-    int rolling();
+    int rolling(float chance);
+    void showResult();
 };
 
 

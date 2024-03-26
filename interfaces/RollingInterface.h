@@ -5,9 +5,8 @@
 
 class RollingInterface {
 public:
-    virtual int rolling() = 0;
+    virtual int rolling(int chance) = 0;
     virtual ~RollingInterface() {}
 };
-
 
 #endif //JDR_ROLLINGINTERFACE_H

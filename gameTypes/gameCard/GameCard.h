@@ -1,21 +1,19 @@
 #ifndef JDR_GAMECARD_H
 #define JDR_GAMECARD_H
 #include <iostream>
+#include "../../interfaces/RollingInterface.h"
+#include "../../tools/logger/Logger.h"
 
-class GameCard {
+class GameCard: protected Logger{
 private:
-    std::string cardType;
+    int cardType;
     int cardNumber;
-    // Converting int to string fo cards
-    std::string convertCardNumberToString(int cardNumber);
 public:
-    // I dont use rollingIntreface here cause i wouldlike make own rolling
-    std::string rolling();
+    void rolling();
     void setCardType();
-    std::string getCardType();
+    int getCardType();
     void setCardNumber();
     int getCardNumber();
+    void showResult();
 };
-
-
 #endif //JDR_GAMECARD_H

@@ -4,4 +4,4 @@
 
 #include "RollingInterface.h"
 
-int RollingInterface::rolling() {return 0;}
+int RollingInterface::rolling(int chance) {return 0;}

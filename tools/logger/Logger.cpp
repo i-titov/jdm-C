@@ -3,16 +3,6 @@
 
 void Logger::log(int msg) {
     switch (msg) {
-        case Logger::error:
-            std::cout << "Something went wrong"<<std::endl;
-            break;
-        case Logger::success:
-            std::cout << "OK"<<std::endl;
-            break;
-    }
-}
-void Logger::gameLog(int msg) {
-    switch (msg) {
         case Logger::start:
             std::cout << "-----Start of the rolling-----"<<std::endl;
             break;
@@ -22,8 +12,15 @@ void Logger::gameLog(int msg) {
         case Logger::coin:
             std::cout << "-----We toss the coin-----"<<std::endl;
             break;
+        case Logger::dices:
+            std::cout << "-----We toss the dices-----"<<std::endl;
+            break;
+        case Logger::cards:
+            std::cout << "-----We hold a card-----"<<std::endl;
+            break;
     }
 }
 void Logger::gameTypeLog(std::string str) {
     std::cout << "-----We going to use " << str <<"-----"<<std::endl;
 }
+void Logger::showResult() {}

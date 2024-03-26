@@ -17,4 +17,6 @@ add_executable(jdr main.cpp
         gameMaster/GameMaster.cpp
         gameMaster/GameMaster.h
         tools/logger/Logger.cpp
-        tools/logger/Logger.h)
+        tools/logger/Logger.h
+        tools/cardsAdapter/CardsAdapter.cpp
+        tools/cardsAdapter/CardsAdapter.h)

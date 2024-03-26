@@ -4,7 +4,7 @@
 
 class GameMaster {
 public:
-    void pleaseGiveMeACrit(int success, int critical, int fumble);
+    int pleaseGiveMeACrit(int success, int critical, int fumble);
     void startRolling();
 };
 

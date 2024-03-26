@@ -1,25 +1,13 @@
 #include "GameCard.h"
 #include <iostream>
 #include "../../tools/randomGenerator/RandomGenerator.h"
+#include "../../tools/cardsAdapter/CardsAdapter.h"
+
 
 void GameCard::setCardType() {
-    int random = RandomGenerator::getRandom(2,4);
-    switch (random) {
-        case 1:
-            this->cardType = "Clubs";
-            break;
-        case 2:
-            this->cardType = "Diamonds";
-            break;
-        case 3:
-            this->cardType = "Hearts";
-            break;
-        case 4:
-            this->cardType = "Spades";
-            break;
-    }
+    this->cardType = RandomGenerator::getRandom(2,4);
 }
-std::string GameCard::getCardType() {
+int GameCard::getCardType() {
     return this->cardType;
 }
 void GameCard::setCardNumber() {
@@ -28,23 +16,13 @@ void GameCard::setCardNumber() {
 int GameCard::getCardNumber() {
     return this->cardNumber;
 }
-
-std::string GameCard::rolling() {
+void GameCard::rolling() {
     this->setCardType();
     this->setCardNumber();
-    return this->cardType + " " + this->convertCardNumberToString(this->cardNumber);
 }
-std::string GameCard::convertCardNumberToString(int cardNumber) {
-    switch (cardNumber) {
-        case 11:
-            return "Jack";
-        case 12:
-            return "Queen";
-        case 13:
-            return "King";
-        case 1:
-            return "A";
-        default:
-            return std::to_string(cardNumber);
-    }
+void GameCard::showResult() {
+    this->rolling();
+    std::string type = CardsAdapter::getCardType(this->cardType);
+    std::string card = CardsAdapter::getCard(this->cardNumber);
+    std::cout << "-----We have " << type + " " + card << "-----" << std::endl;
 }

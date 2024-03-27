@@ -4,18 +4,22 @@
 #include "../gameTypes/gameCard/gameCard.h"
 #include "../tools/randomGenerator/RandomGenerator.h"
 
-int GameMaster::pleaseGiveMeACrit(int success, int critical, int fumble) {
-
-    return success * critical * fumble;
+float GameMaster::pleaseGiveMeACrit(int success, int critical, int fumble) {
+    return (success * critical * fumble)/100;
 }
+
 void GameMaster::startRolling() {
     Logger::log(Logger::start);
     int random = RandomGenerator::getRandom(1, 3);
+    float plsGiveCrit = this->pleaseGiveMeACrit(RandomGenerator::getRandom(1, 100),
+                                              RandomGenerator::getRandom(1, 100),
+                                              RandomGenerator::getRandom(1, 100));
     switch (random) {
         case 1: {
             Logger::gameTypeLog("Coin");
             Coin coin;
             Logger::log(Logger::coin);
+            coin.rolling(plsGiveCrit);
             coin.showResult();
             Logger::log(Logger::end);
             break;

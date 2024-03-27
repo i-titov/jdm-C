@@ -1,5 +1,6 @@
 #include "../../tools/randomGenerator/RandomGenerator.h"
 #include "Coin.h"
+#include <iostream>
 using namespace std;
 
 Coin::Coin(int draws, int result){
@@ -26,9 +27,10 @@ int Coin::tossCoin(int draw) {
     return this->tossCoin(draw - 1);
 }
 int Coin::rolling(int chance) {
-    this->tossCoin(this->draws);
-    return this->getResult();
+    setResult(this->tossCoin(this->draws) * chance);
+    return 0;
 }
+
 void Coin::showResult() {
     std::string str = (this->getResult() == 0) ? "heads" : "tails";
     std::cout << "-----We have " << str << "-----" << std::endl;
